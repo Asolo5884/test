@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            background-color: #ffcc00;
+            border: 2px solid #ff9900;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 150px;
+            font-size: 48px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.2s;
+            z-index: 1;
+        }
+        .gift-box:hover {
+            transform: scale(1.05);
+        }
+        .heart {
+            display: none;
+            font-size: 40vw;
+            position: absolute;
+            animation: float 3s infinite; 
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); 
+            z-index: 0; 
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%); }
+            50% { transform: translate(-50%, calc(-50% - 20px)); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="gift-box" id="giftBox">🎁</div>
+<div class="heart" id="heart">❤️</div>
+
+<script>
+    document.getElementById('giftBox').addEventListener('click', function() {
+        const heart = document.getElementById('heart');
+        heart.style.display = 'block'; 
+        this.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
